@@ -4,9 +4,11 @@ public class Settler extends Unit{
         super(position, HP, 2, faction);
     }
 
+    @Override
     public void takeAction(Tile tile){
-        if(tile.getX() == this.getPosition().getX() && tile.getY() == this.getPosition().getY() && !tile.isCity()){
+        if (tile.getX() == this.getPosition().getX() && tile.getY() == this.getPosition().getY() && !tile.isCity()){
             tile.buildCity();
+            tile.removeUnit(this);
         }
     }
 

@@ -4,11 +4,11 @@ public class ListOfUnits {
     private int size;
 
     public ListOfUnits(){
-        this.units = new Unit[this.size];
+        units = new Unit[this.size];
     }
 
     public int getSize(){
-        return this.size;
+        return this.units.length;
     }
 
     public Unit[] getList() {
@@ -33,59 +33,61 @@ public class ListOfUnits {
         return sol;
     }
 
-    public void addUnit(Unit unit){
-        size = this.getSize();
-        int newCapacity = size + 1;
-        Unit[] newArray = new Unit[newCapacity];
-        if (size > 0){
-            for(int i = 1;  i < size; i++){
-                newArray[i] = units[i];
-            }
+    public void addUnit(Unit unit) {
+        Unit[] newList = new Unit[this.units.length + 1];
+        for (int i = 0; i < this.units.length; i++) {
+            newList[i] = this.units[i];
         }
-        else{
-            return;
-        }
-        units = newArray;
-        units[size] = unit;
+        newList[newList.length - 1] = unit;
+        this.units = newList;
     }
 
     public int indexOf(Unit element){
-        int sol;
-        for(int item = 0; item < this.size; item++){
-            if(this.units[item].equals(element)){
-                sol = item;
+        int index = 0;
+        for (Unit unit : this.units){
+            if (unit.equals(element)){
+                return index;
+            }
+            else{
+                index++;
             }
         }
-        sol = -1;
-        return sol;
+        return -1;
     }
 
     public boolean removeUnit(Unit element) {
-        int index = indexOf(element);
-        if(index == -1) {
+        int index = this.indexOf(element);
+        if (index == -1) {
             return false;
-        }
-        else {
+        } else {
             units[index] = null;
-            this.size--;
+            Unit[] newList = new Unit[units.length - 1];
+            int newIndex = 0;
+            for (int i = 0; i < units.length; i++) {
+                if (units[i] != null) {
+                    newList[newIndex] = units[i];
+                    newIndex++;
+                }
+            }
+            units = newList;
             return true;
         }
     }
     public MilitaryUnit[] getArmy() {
         int militaryCount = 0;
-        for (int i = 0; i < this.size; i++) {
-            if (units[i] instanceof MilitaryUnit) {
+        for (Unit unit : this.units) {
+            if (unit instanceof MilitaryUnit) {
                 militaryCount++;
             }
         }
         MilitaryUnit[] solution = new MilitaryUnit[militaryCount];
-        int currentIndex = 0;
-        for (int i = 0; i < this.size; i++) {
-            if (units[i] instanceof MilitaryUnit) {
-                solution[currentIndex++] = (MilitaryUnit) units[i];
+        int j = 0;
+        for (Unit unit : this.units) {
+            if (unit instanceof MilitaryUnit) {
+                solution[j] = (MilitaryUnit) unit;
+                j++;
             }
         }
-        
         return solution;
     }
 }
