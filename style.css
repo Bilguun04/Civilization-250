@@ -1,5 +1,6 @@
 body {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('pictures/Civilization 250.jpg');
+    background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,18 +8,40 @@ body {
     height: auto;
     margin: 0;
     text-align: center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background-size: auto;
+    font-family: 'Roboto', sans-serif;
 }
 
 main, header, footer {
     color: white; /* Change this to the color you want */
     padding: 10px;
+    font-family: 'Roboto', sans-serif;
 }
 
-@keyframes backgroundAnimation {
-    0% {background-position: 0 0;}
-    100% {background-position: 100% 0;}
+.paragraph {
+    width: 60%;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+    font-size: x-large;
+}
+
+.description-picture {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+    font-size: x-large;
+}
+
+.description-picture .description {
+    flex: 1;
+    margin-right: 10px;
+
+}
+
+.description-picture .picture {
+    flex: 1;
+    margin-left: 10px;
+    width: 30%;
 }
