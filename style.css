@@ -28,8 +28,7 @@ main, header, footer {
 .description-picture {
     display: flex;
     justify-content: space-between;
-    width: 30%;
-    margin: 0 auto;
+    width: 100%; /* Adjust this to take full width */
     font-family: 'Roboto', sans-serif;
     font-size: x-large;
 }
@@ -37,11 +36,17 @@ main, header, footer {
 .description-picture .description {
     flex: 1;
     margin-right: 10px;
-
+    display: flex;
+    align-items: center;
+        justify-content: center;
 }
 
 .description-picture .picture {
     flex: 1;
     margin-left: 10px;
-    width: 30%;
+}
+
+.description-picture .picture img {
+    width: auto; /* Adjust this value as needed */
+    height: 400px;
 }
