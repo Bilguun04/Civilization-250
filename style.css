@@ -1,0 +1,24 @@
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('pictures/Civilization 250.jpg');
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin: 0;
+    text-align: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+main, header, footer {
+    color: white; /* Change this to the color you want */
+    padding: 10px;
+}
+
+@keyframes backgroundAnimation {
+    0% {background-position: 0 0;}
+    100% {background-position: 100% 0;}
+}
